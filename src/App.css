@@ -1,0 +1,52 @@
+:root {
+  --black: #333;
+  --darker-gray: #575d5c;
+  --dark-gray: #6d7573;
+  --gray: #999;
+  --white: #f7f5f3;
+  --orange: #f07e26;
+  --blue: #00698e;
+  --green: #268729;
+  --red: #e6492e;
+  --off-pink: #b7829b;
+  --off-blue: #6b9bad;
+  --off-green: #83b7a9;
+}
+
+.Page {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.Navbar {
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: var(--white);
+  margin-bottom: 30px;
+}
+
+.Navbar-panel {
+  height: 5px;
+  display: block;
+  background-color: var(--orange);
+}
+
+.Banner {
+  text-align: center;
+  background-color: var(--black);
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: block;
+}
+
+.Banner h1 {
+  padding: 10px 0;
+  color: var(--white);
+  font-family: 'Duplex Serif Titling',serif;
+}
