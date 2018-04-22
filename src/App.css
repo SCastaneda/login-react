@@ -13,37 +13,7 @@
   --off-green: #83b7a9;
 }
 
-.Page {
-  background-color: #fff;
-  height: 100%;
-  width: 100%;
-  margin-top: 50px;
-}
-
-.Navbar {
-  position: fixed;
-  height: 40px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: block;
-  background-color: var(--white);
-  margin-bottom: 30px;
-}
-
-.Navbar-panel {
-  height: 5px;
-  display: block;
-  background-color: var(--orange);
-}
-
-.Logout {
-  position: fixed;
-  right: 0;
-}
-
 .Banner {
-  text-align: center;
   background-color: var(--black);
   margin-bottom: 30px;
   margin-top: 30px;

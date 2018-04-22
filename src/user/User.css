@@ -1,0 +1,14 @@
+.UserPanel {
+  margin: auto;
+  width: 60%;
+}
+
+.UserPanel h2 {
+  font-family: 'Duplex Serif Web',serif;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.UserData button {
+  margin-left: 10px;
+}

@@ -23,7 +23,6 @@ class LoginView extends Component {
   handleSubmit(event) {
     let self = this;
     LoginManager.login(this.state.username, this.state.password, function(loggedIn) {
-      console.log("Login status: " + loggedIn);
       self.props.onLogin(loggedIn);
     });
     event.preventDefault();
@@ -32,18 +31,26 @@ class LoginView extends Component {
   render() {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmit}>
-        <div className="form-group">
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text"><span className="oi oi-person"></span></span>
+          </div>
           <input name="username" type="text" className="form-control Login-input"
             placeholder="Enter Username"
             value={this.state.username} onChange={this.handleChange} />
         </div>
 
-        <div className="form-group">
-            <input name="password" type="password" className="form-control Login-input"
-              placeholder="Password"
-              value={this.state.password} onChange={this.handleChange} />
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text"><span className="oi oi-key"></span></span>
+          </div>
+          <input name="password" type="password" className="form-control Login-input"
+            placeholder="Password"
+            value={this.state.password} onChange={this.handleChange} />
+          <div className="input-group-append">
+            <input className="btn btn-outline-secondary" type="submit" value="Login" />
+          </div>
         </div>
-        <input type="submit" value="Login" />
       </form>
     );
   }

@@ -7,10 +7,12 @@ class LoginManager {
     return Cookies.get('token') !== null && Cookies.get('token') !== undefined;
   }
 
+  static getToken() {
+    return Cookies.get('token');
+  }
+
   static logout() {
-    console.log("Logout called!")
     Cookies.remove('token');
-    // TODO: navigate back to login page
   }
 
   static login(username, password, cb) {
@@ -21,12 +23,12 @@ class LoginManager {
     }
 
     let success = function(data) {
-      Cookies.set('token', data.token, { expires: 1});
+      Cookies.set('token', data.token, { expires: 1 });
       cb(true);
     }
 
     let failure = function(error) {
-      console.log(error.responseText);
+      console.error(error.responseText);
       cb(false);
     }
 

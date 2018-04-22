@@ -3,6 +3,7 @@ import './App.css';
 import LoginView from './login/LoginView.js'
 import LoginManager from './login/LoginManager.js'
 import UserView from './user/UserView.js'
+import Page from './page/Page.js'
 
 class App extends Component {
 
@@ -24,79 +25,12 @@ class App extends Component {
     }
   }
 
-  page(content) {
-    return (
-      <div className="Page">
-        <Navbar onLogout={this.handleLogout} />
-        <Banner />
-        {content}
-      </div>
-    )
-  }
-
   render() {
     if(!this.state.loggedIn) {
-      return this.page(<LoginView onLogin={this.handleLogin} />);
+      return (<Page onLogout={this.handleLogout}><LoginView onLogin={this.handleLogin} /></Page>);
     } else {
-      return this.page(<UserView />);
+      return (<Page onLogout={this.handleLogout}><UserView /></Page>);
     }
-  }
-}
-
-class LogoutButton extends Component {
-
-  constructor(props) {
-    super(props);
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    this.props.onLogout(true);
-  }
-
-  render() {
-    if(LoginManager.isLoggedIn()) {
-      return (
-        <div className="Logout">
-          <button onClick={this.logout}>Logout</button>
-        </div>
-      )
-    } else {
-      return null;
-    }
-  }
-};
-
-class Navbar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {loggingOut: false}
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleLogout(event) {
-    this.props.onLogout(true);
-    console.log("Logging out -- from Navbar!");
-  }
-
-  render() {
-    return (
-      <div className="Navbar">
-        <div className="Navbar-panel"></div>
-        <LogoutButton onLogout={this.handleLogout} />
-      </div>
-    )
-  }
-}
-
-class Banner extends Component {
-  render() {
-    return (
-      <div className="Banner">
-        <h1>Welcome to the KSF Profile Manger</h1>
-      </div>
-    )
   }
 }
 
