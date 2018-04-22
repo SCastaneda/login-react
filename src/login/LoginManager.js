@@ -24,12 +24,12 @@ class LoginManager {
 
     let success = function(data) {
       Cookies.set('token', data.token, { expires: 1 });
-      cb(true);
+      cb(true, null);
     }
 
     let failure = function(error) {
       console.error(error.responseText);
-      cb(false);
+      cb(false, error.responseText);
     }
 
     $.ajax({

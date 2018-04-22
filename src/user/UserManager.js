@@ -4,12 +4,12 @@ import $ from 'jquery';
 class UserManager {
 
   constructor() {
-    this.state = { user: undefined };
+    this.state = { user: null };
   }
 
   getUser(cb) {
 
-    if(this.state.user !== undefined) {
+    if(this.state.user !== null) {
       return cb(true, this.state.user);
     }
     let self = this;
@@ -23,7 +23,7 @@ class UserManager {
       console.error(error);
       if(error.status === 401) {
         LoginManager.logout();
-        self.state.user = undefined;
+        self.state.user = null;
       }
       cb(false, error);
     }
@@ -55,7 +55,7 @@ class UserManager {
       console.error(error);
       if(error.status === 401) {
         LoginManager.logout();
-        this.state.user = undefined;
+        this.state.user = null;
       }
       cb(false, error);
     }
